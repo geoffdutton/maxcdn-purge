@@ -1,6 +1,6 @@
 # maxcdn-purge
 
-[![Build Status](https://travis-ci.org/jmervine/maxcdn-pruge.png?branch=master)](https://travis-ci.org/jmervine/maxcdn-pruge) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/maxcdn-pruge.png)](https://david-dm.org/jmervine/maxcdn-pruge) &nbsp; [![NPM Version](https://badge.fury.io/js/maxcdn-purge.png)](https://badge.fury.io/js/maxcdn-purge)
+[![Build Status](https://travis-ci.org/jmervine/maxcdn-purge.png?branch=master)](https://travis-ci.org/jmervine/maxcdn-purge) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/maxcdn-purge.png)](https://david-dm.org/jmervine/maxcdn-purge) &nbsp; [![NPM Version](https://badge.fury.io/js/maxcdn-purge.png)](https://badge.fury.io/js/maxcdn-purge)
 
 ### Install
 
@@ -35,11 +35,11 @@ Usage: purge.js --alias ALIAS --key KEY --secret SECRET [OPTIONS]
 
  Examples:
 
- $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone 12345 --zone 54321
+ $ ./purge.js --alias ALIAS --key KEY --SECRET --zone 12345 --zone 54321
 
- $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone [ 12345 54321 ]
+ $ ./purge.js --alias ALIAS --key KEY --SECRET --zone [ 12345 54321 ]
 
- $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone 12345
+ $ ./purge.js --alias ALIAS --key KEY --SECRET --zone 12345
  $         --file /master.css --file /master.js
 
 ```
