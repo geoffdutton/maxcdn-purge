@@ -1,5 +1,7 @@
 # maxcdn-purge
 
+[![Build Status](https://travis-ci.org/jmervine/maxcdn-pruge.png?branch=master)](https://travis-ci.org/jmervine/maxcdn-pruge) &nbsp; [![Dependancy Status](https://david-dm.org/jmervine/maxcdn-pruge.png)](https://david-dm.org/jmervine/maxcdn-pruge) &nbsp; [![NPM Version](https://badge.fury.io/js/maxcdn-purge.png)](https://badge.fury.io/js/maxcdn-purge)
+
 ### Install
 
 ```
