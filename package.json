@@ -1,0 +1,31 @@
+{
+  "name": "maxcdn-purge",
+  "version": "0.0.1",
+  "description": "Commandline helper to purge MaxCDN zones.",
+  "main": "purge.js",
+  "scripts": {
+    "test": "tape ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmervine/maxcdn-purge.git"
+  },
+  "keywords": [
+    "MaxCDN",
+    "Purge"
+  ],
+  "author": "Joshua P Mervine <joshua@mervine.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmervine/maxcdn-purge/issues"
+  },
+  "homepage": "https://github.com/jmervine/maxcdn-purge",
+  "dependencies": {
+    "maxcdn": "~0.1.1",
+    "subarg": "0.0.1",
+    "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "tape": "~2.4.2"
+  }
+}

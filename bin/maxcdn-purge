@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+var subarg = require('subarg');
+var purge  = require('../purge');
+
+var args   = subarg(process.argv.slice(2));
+
+if (args.help || args.h) usage();
+
+[ 'alias', 'key', 'secret' ].forEach(function(opt) { // support ALIAS, KEY, SECRET from environment
+    args[opt] = args[opt] || process.env[opt.toUpperCase()];
+});
+
+try {
+    purge(args, function (err, res) {
+        if (err) usage(1, err);
+        res.forEach(function (r) {
+            if (r.response.code !== 200) {
+                console.log('Purge on %s (id: %s) failed with status code %s.',
+                                            r.type, r.zone, r.response.code);
+            } else {
+                console.log('Purge on %s (id: %s) successful.', r.type, r.zone);
+            }
+        });
+    });
+} catch (e) {
+    usage(1, e);
+}
+
+function usage(status, error) {
+    status = status || 0; // default to zero exit status
+
+    if (error) {
+        console.error("ERROR:", error.message);
+        console.error(" ");
+    }
+
+    console.log("Usage: purge.js --alias ALIAS --key KEY --secret SECRET [OPTIONS]");
+    console.log(" ");
+    console.log(" Required:");
+    console.log(" --alias:  Your consumer alias.");
+    console.log(" --key:    Your oauth consumer key.");
+    console.log(" --secret: Your oauth consumer secret token.");
+    console.log(" ");
+    console.log(" Note:");
+    console.log("   alias, key and secret can also be read from your environment");
+    console.log("   via exporting ALIAS, KEY, and/or SECRET with your credentials.");
+    console.log(" ");
+    console.log(" Optional:");
+    console.log(" --pull:   One or more pull zones to purge.");
+    console.log(" --push:   One or more push zones to purge.");
+    console.log(" --file:   One or more files to purge.");
+    console.log(" --help:   This help message.");
+    console.log(" ");
+    console.log(" Examples:");
+    console.log(" ");
+    console.log(" $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone 12345 --zone 54321");
+    console.log(" ");
+    console.log(" $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone [ 12345 54321 ]");
+    console.log(" ");
+    console.log(" $ ./pruge.js --alias ALIAS --key KEY --SECRET --zone 12345 \ ");
+    console.log(" $         --file /master.css --file /master.js");
+    console.log(" ");
+    process.exit(status);
+}
+
+// vim: ft=javascript:
